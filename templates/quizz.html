@@ -1,0 +1,22 @@
+<script>
+  window.onpageshow = function(event) {
+    if (event.persisted) {
+      window.location.reload();
+    }
+  };
+</script>
+<title>Activity Matcher</title>
+<p> {{user}}, you can select multiple partners by holding the ctrl key while you click their names</p>
+
+<form action = "result" method = "POST">
+            {{ form.csrf }}
+<div class="input text">
+    <!--<header><h1>Entertainment</h1></header>-->
+                {% for field in form %}
+        <label>{{field.label}}</label> {{field}} <br><br>
+      {% endfor %}
+    <!--<header><h1>Food</h1></header>-->
+<div class="input submit">
+                <input type="submit" value="Submit"></div>
+</form>
+<a href="logout">log out</a>

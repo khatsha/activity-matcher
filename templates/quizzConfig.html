@@ -1,0 +1,12 @@
+<title>Activity Matcher</title>
+<p>Please select your role and who you would like to take the quizz with</p>
+
+<form action = "quizz" method = "POST">
+            {{ form.csrf }}
+<div class="input text">
+                {% for field in form %}
+        <label>{{field.label}}</label> {{field}} <br><br>
+      {% endfor %}
+<div class="input submit">
+                <input type="submit" value="Submit"></div>
+</form>

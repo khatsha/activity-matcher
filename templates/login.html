@@ -1,0 +1,11 @@
+<title>Activity Matcher</title>
+
+<form action = "login" method = "POST">
+            {{ form.csrf }}
+<div class="input text">
+                {% for field in form %}
+        <label>{{field.label}}</label> {{field}} <br><br>
+      {% endfor %}
+<div class="input submit">
+                <input type="submit" value="Submit"></div>
+</form>

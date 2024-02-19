@@ -3,6 +3,7 @@ from collections import OrderedDict
 from flask import Flask, render_template, request, redirect, url_for, session
 from wtforms import Form, SelectField, BooleanField, StringField, PasswordField, validators, SelectMultipleField
 from flask_login import LoginManager, UserMixin, login_user, current_user, login_required, logout_user
+from wtforms.validators import DataRequired
 import sqlite3
 
 DEPENDS = 'depends'
@@ -375,8 +376,8 @@ def user_loader(user_id):
 
 
 class LoginForm(Form):
-    username = StringField('Username', validators=[validators.required()])
-    password = PasswordField('Password', validators=[validators.required()])
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
 
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)

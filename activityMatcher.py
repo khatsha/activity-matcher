@@ -414,6 +414,17 @@ def logout():
     logout_user()
     return render_template("logout.html")
 
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        user = User(username, password)
+        fakeUserDb[username] = user
+        partners.append((username, username))
+        return redirect('/login')
+    return render_template('signup.html')
+
 @app.route("/welcome")
 @login_required
 def welcome():
